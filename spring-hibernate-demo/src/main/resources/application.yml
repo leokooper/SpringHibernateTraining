@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    jndi-name: jdbc/Library
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5IInoDBDialect
+    properties:
+      current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      format_sql: true
+    show-sql: true
+logging:
+  file: /Users/leokooper/git/SpringHibernateTraining/spring-hibernate-demo/temp/log.txt
+  pattern:
+    file: "%d:{HH:mm:ss} %-5p [%c] - %m%n"
+
+  level:
+    ROOT: warn
+    org.springframework: debug
+    org.springframework.security: debug
+    org.hibernate: debug
+    org.hibernate.type.descriptor.sql: trace
