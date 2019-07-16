@@ -1,4 +1,4 @@
-package ru.leonchenko.spring.sprinthibernate.entity;
+package ru.leonchenko.spring.sprinthibernate.entities;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -67,4 +67,18 @@ public class Book {
     @Override
     public String toString() {return name;}
 
+    public Book() {
+    }
+
+    public Book(String name, Integer pageCount, String isbn, Genre genre, Author author, Publisher publisher, Integer publishYear, byte[] image, String descr) {
+        this.name = name;
+        this.pageCount = pageCount;
+        this.isbn = isbn;
+        this.genre = genre;
+        this.author = author;
+        this.publisher = publisher;
+        this.publishYear = publishYear;
+        this.image = image;
+        this.descr = descr;
+    }
 }

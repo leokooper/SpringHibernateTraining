@@ -1,6 +1,5 @@
-package ru.leonchenko.spring.sprinthibernate.entity;
+package ru.leonchenko.spring.sprinthibernate.entities;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,33 +15,30 @@ import java.util.List;
  * @version 1.0
  */
 
-
-@Entity
-@Table (name = "author", catalog = "library")
 @EqualsAndHashCode(of = "id")
-@Getter
-@Setter
+@Table(name = "genre", catalog = "library")
 @DynamicUpdate
 @DynamicInsert
 @SelectBeforeUpdate
+@Entity
+@Getter
+@Setter
 
-public class Author {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Genre {
+
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
 
-    @Column(nullable = false, length = 300)
-    @Basic
-    private String fio;
-
     @Column(nullable = false)
-    private Data birthday;
+    private String name;
 
-    @Basic(fetch = FetchType.LAZY)
-    @OneToMany(mappedBy = "author")
+    @Basic (fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "genre")
     private List<Book> books;
 
     @Override
-    public String toString() {return fio; }
+    public String toString() {return name;}
+
 }

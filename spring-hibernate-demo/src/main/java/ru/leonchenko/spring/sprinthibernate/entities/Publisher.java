@@ -1,4 +1,4 @@
-package ru.leonchenko.spring.sprinthibernate.entity;
+package ru.leonchenko.spring.sprinthibernate.entities;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
