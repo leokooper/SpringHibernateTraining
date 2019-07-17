@@ -1,6 +1,5 @@
 package ru.leonchenko.spring.sprinthibernate.entities;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,6 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SelectBeforeUpdate;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,7 +37,7 @@ public class Author {
     private String fio;
 
     @Column(nullable = false)
-    private Data birthday;
+    private Date birthday;
 
     @Basic(fetch = FetchType.LAZY)
     @OneToMany(mappedBy = "author")

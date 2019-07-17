@@ -70,7 +70,8 @@ public class Book {
     public Book() {
     }
 
-    public Book(String name, Integer pageCount, String isbn, Genre genre, Author author, Publisher publisher, Integer publishYear, byte[] image, String descr) {
+    public Book(Long id, String name, Integer pageCount, String isbn, Genre genre, Author author, Publisher publisher, Integer publishYear, byte[] image, String descr) {
+        this.id = id;
         this.name = name;
         this.pageCount = pageCount;
         this.isbn = isbn;
