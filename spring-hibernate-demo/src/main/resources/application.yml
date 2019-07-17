@@ -8,6 +8,10 @@ spring:
       dialect: org.hibernate.dialect.MySQL8Dialect
       format_sql: true
     show-sql: true
+  security:
+    user:
+      name: user
+      password: password
 logging:
   file: /Users/leokooper/git/SpringHibernateTraining/spring-hibernate-demo/temp/log.txt
   pattern:
@@ -15,7 +19,8 @@ logging:
 
   level:
     ROOT: warn
-    org.springframework: debug
-    org.springframework.security: debug
-    org.hibernate: debug
+    org.springframework: warn
+    org.springframework.security: warn
+    org.hibernate: warn
     org.hibernate.type.descriptor.sql: trace
+
