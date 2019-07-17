@@ -6,7 +6,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"ru.leonchenko.spring.sprinthibernate"})
+//@ComponentScan(basePackages = {"ru.leonchenko.spring.sprinthibernate"})
 public class ServletInitializer extends SpringBootServletInitializer {
 
     }
