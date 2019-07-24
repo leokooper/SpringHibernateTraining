@@ -1,12 +1,10 @@
 package ru.leonchenko.hibernate.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -17,13 +15,29 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
+@DynamicUpdate
+@DynamicInsert
 public class Author implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NonNull
     private String name;
 
+    @Column(name = "surname")
+    private String surName;
 
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
+                '}';
+    }
 }
