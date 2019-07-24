@@ -1,5 +1,4 @@
 package ru.leonchenko.hibernate;
-import org.hibernate.type.descriptor.sql.*;
 import org.hibernate.Session;
 import org.jboss.logging.Logger;
 import ru.leonchenko.hibernate.entity.Author;
@@ -18,14 +17,19 @@ public class Start {
         for (Author author : new AuthorHelper().getAuthorList()
              ) {
 //            System.out.println("author = " + author.getName());
-            LOG.warn(author.getName());
+            LOG.debug(author.getName());
         }
 
         for (Book book : new BookHelper().getBookList()
         ) {
 //            System.out.println("book = " + book.getName());
-            LOG.warn(book.getName());
+            LOG.debug(book.getName());
 
         }
+
+//        Author author = new Author("Иванов");
+//        new AuthorHelper().addAuthor(author);
+        Author author1 = session.get(Author.class, 1);
+        System.out.println(author1);
     }
 }
