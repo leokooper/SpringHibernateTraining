@@ -37,4 +37,19 @@ public class AuthorHelper {
 
         return authorList;
     }
+
+    public Author addAuthor(Author author) {
+        Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+        session.save(author);
+        session.getTransaction().commit();
+        session.close();
+        return author;
+
+    }
+
+    public Author getAuthor(String name) {
+        return null;
+    };
 }
