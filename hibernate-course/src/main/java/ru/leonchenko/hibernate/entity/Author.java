@@ -20,6 +20,8 @@ import java.io.Serializable;
 @RequiredArgsConstructor
 @DynamicUpdate
 @DynamicInsert
+@EqualsAndHashCode(of = "id")
+@ToString(of = "name", includeFieldNames = false)
 public class Author implements Serializable {
 
     @Id
@@ -32,12 +34,8 @@ public class Author implements Serializable {
     @Column(name = "surname")
     private String surName;
 
-    @Override
-    public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surName='" + surName + '\'' +
-                '}';
+    public Author(int id, @NonNull String name) {
+        this.id = id;
+        this.name = name;
     }
 }

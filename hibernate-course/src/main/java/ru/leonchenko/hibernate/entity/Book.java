@@ -1,7 +1,9 @@
 package ru.leonchenko.hibernate.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -21,6 +23,8 @@ import java.io.Serializable;
 @Setter
 @DynamicUpdate
 @DynamicInsert
+@EqualsAndHashCode(of = "id")
+@ToString(of = "name", includeFieldNames = false)
 public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
