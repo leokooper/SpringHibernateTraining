@@ -4,11 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-      <property name="connection.url"><![CDATA[jdbc:mysql://localhost/testhibernate?useSSL=true&serverTimezone=UTC]]></property>
+      <property name="connection.url">jdbc:mysql://localhost:3306/testhibernate?useSSL=false&amp;serverTimezone=UTC</property>
 
-      <property name="hibernate.connection.CharSet">utf8mb4</property>
+      <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+      <property name="connection.username">root</property>
+      <property name="connection.password">12345678</property>
+
       <property name="hibernate.connection.characterEncoding">utf8</property>
-      <property name="hibernate.connection.useUnicode">true</property>
 
       <property name="show_sql">true</property>
       <property name="format_sql">true</property>
@@ -16,12 +19,9 @@
       <property name="default_schema">testhibernate</property>
 
       <property name="hibernate.current_session_context_class">thread</property>
-      <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
       <mapping class="ru.leonchenko.hibernate.entity.Author"/>
       <mapping class="ru.leonchenko.hibernate.entity.Book"/>
-      <mapping class="ru.leonchenko.hibernate.entity_generated.AuthorEntity"/>
-      <mapping class="ru.leonchenko.hibernate.entity_generated.BookEntity"/>
 
   </session-factory>
 </hibernate-configuration>
