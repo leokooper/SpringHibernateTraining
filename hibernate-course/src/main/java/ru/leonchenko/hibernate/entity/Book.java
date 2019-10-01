@@ -1,9 +1,6 @@
 package ru.leonchenko.hibernate.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -18,16 +15,16 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
-@DynamicUpdate
-@DynamicInsert
-@EqualsAndHashCode(of = "id")
-@ToString(of = "name", includeFieldNames = false)
-public class Book implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Book {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
-    private String name;
+//    private int id;
+//
+//    private String name;
 
     @Column (insertable = false, updatable = false)
     private int author_id;
@@ -35,5 +32,8 @@ public class Book implements Serializable {
     @ManyToOne
     @JoinColumn
     private Author author;
+
+    @Embedded
+    private CommonFields commonFields;
 
 }
