@@ -21,21 +21,34 @@ public class BookHelper {
 
     public BookHelper() {sessionFactory = HibrnateUtil.getSessionFactory();}
 
-    public List<Book> getBookList() {
+
+    public List<Book> getBookList(){
+
+        // открыть сессию - для манипуляции с персист. объектами
         Session session = sessionFactory.openSession();
 
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        // этап подготовки запроса
+
+        // объект-конструктор запросов для Criteria API
+        CriteriaBuilder cb = session.getCriteriaBuilder();// не использовать session.createCriteria, т.к. deprecated
 
         CriteriaQuery cq = cb.createQuery(Book.class);
 
-        Root<Author> root = cq.from(Book.class);
+        Root<Book> root = cq.from(Book.class);// первостепенный, корневой entity (в sql запросе - from)
 
+        cq.select(root);// необязательный оператор, если просто нужно получить все значения
+
+
+
+        // этап выполнения запроса
         Query query = session.createQuery(cq);
 
-        List <Book> bookList = query.getResultList();
+        List<Book> bookList = query.getResultList();
 
         session.close();
 
         return bookList;
+
     }
+
 }

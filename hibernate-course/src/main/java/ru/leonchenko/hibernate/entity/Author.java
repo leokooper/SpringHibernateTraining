@@ -14,33 +14,34 @@ import java.util.Set;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@DynamicUpdate
-@DynamicInsert
-@EqualsAndHashCode(of="id")
-@ToString(of = "name", includeFieldNames = false)
-public class Author implements Serializable{
+public class Author {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY) // генерация ID через Autoincrement в MySQL
-    private long id;
 
-    private String name;
+//    private long id;
+//
+//    private String name;
 
     @Column(name = "surname")
     private String secondName;
 
-    @OneToMany(mappedBy = "author")
-    @Basic(fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = Book.class, mappedBy = "author")
+    //@Basic(fetch = FetchType.LAZY)
     private List<Book> books = new ArrayList<>();
 
-    public Author(long id, String name){
-        this.id = id;
-        this.name = name;
-    }
+    @Embedded
+    protected CommonFields commonFields;
 
-    public Author(String name){
-        this.name = name;
-    }
+
+//    public Author(long id, String name){
+//        this.id = id;
+//        this.name = name;
+//    }
+//
+//    public Author(CommonFields commonFields){
+//        this.commonFields = commonFields;
+//    }
 
 
 
