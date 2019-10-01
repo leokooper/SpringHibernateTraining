@@ -7,10 +7,7 @@ import lombok.ToString;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -32,6 +29,11 @@ public class Book implements Serializable {
 
     private String name;
 
+    @Column (insertable = false, updatable = false)
     private int author_id;
+
+    @ManyToOne
+    @JoinColumn
+    private Author author;
 
 }

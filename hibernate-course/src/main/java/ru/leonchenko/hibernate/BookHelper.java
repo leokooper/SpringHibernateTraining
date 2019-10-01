@@ -23,9 +23,9 @@ public class BookHelper {
 
     public List<Book> getBookList() {
         Session session = sessionFactory.openSession();
-        session.get(Book.class, 1);
 
         CriteriaBuilder cb = session.getCriteriaBuilder();
+
         CriteriaQuery cq = cb.createQuery(Book.class);
 
         Root<Author> root = cq.from(Book.class);

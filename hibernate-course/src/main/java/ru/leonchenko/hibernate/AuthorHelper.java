@@ -82,7 +82,69 @@ public class AuthorHelper {
 
     }
 
+    public void delete() {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        Author a = session.get(Author.class, 6L);
+
+        session.delete(a);
+
+        session.getTransaction().commit();
+
+        session.close();
+    }
+
+    public void deletePackage(){
+        Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+
+        CriteriaDelete<Author> criteriaDelete = cb.createCriteriaDelete(Author.class);
+
+        Root<Author> root = criteriaDelete.from(Author.class);
+
+        ParameterExpression<String> nameParam = cb.parameter(String.class, "name");
+        ParameterExpression<String> secNameParam = cb.parameter(String.class, "secondName");
+
+
+        criteriaDelete.where(cb.or(
+                cb.and(
+                        cb.like(root.get(Author_.name), nameParam),
+                        cb.like(root.get(Author_.secondName), secNameParam)
+                ),
+                        cb.equal(root.get(Author_.name), "name_99")
+                )
+                );
+
+        Query query = session.createQuery(criteriaDelete);
+
+        query.setParameter("name", "%Аку%");
+
+        query.setParameter("secName", "%ttt%");
+
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+
+        session.close();
+
+    }
+
     public Author getAuthor(String name) {
         return null;
+    }
+
+    public Author getAuthorList(long id) {
+
+        Session session = sessionFactory.openSession();
+
+        Author author =  session.get(Author.class, id);
+
+        author.getBooks().get(0).getName();
+
+        return author;
     }
 }

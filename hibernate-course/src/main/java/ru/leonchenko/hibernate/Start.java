@@ -16,9 +16,11 @@ public class Start {
 
     public static void main(String[] args) {
 
-        new AuthorHelper().getAuthorList();
+        new AuthorHelper().getAuthorList(1);
+//
+//        HibrnateUtil.getSessionFactory().close();
 
-        HibrnateUtil.getSessionFactory().close(); // закрываем фабрику, иначе программа останется в "зависнутом состоянии"
+//        new BookHelper().getBookList();
 
     }
 
