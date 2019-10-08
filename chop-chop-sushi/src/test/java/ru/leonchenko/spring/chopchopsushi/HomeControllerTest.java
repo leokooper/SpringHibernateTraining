@@ -23,8 +23,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(HomePageControllerTest.class)
-public class HomePageControllerTest {
+@WebMvcTest
+public class HomeControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -33,7 +33,7 @@ public class HomePageControllerTest {
     public void testHomePage() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("Home Page"))
-                .andExpect(content().string(containsString("Welcome to Chop Chop Sushi!")));
+                .andExpect(view().name("home"))
+                .andExpect(content().string(containsString("Welcome to Chop Chop Sushi Shop!")));
     }
 }
