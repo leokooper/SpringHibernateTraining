@@ -9,9 +9,10 @@ import ru.leonchenko.spring.chopchopsushi.Ingredient;
 
 public interface IngredientRepository {
 
-    Iterable<Ingredient> findAll();
-
-    Ingredient findOne(String id);
-
-    Ingredient save(Ingredient ingredient);
+  Iterable<Ingredient> findAll();
+  
+  Ingredient findById(String id);
+  
+  Ingredient save(Ingredient ingredient);
+  
 }
