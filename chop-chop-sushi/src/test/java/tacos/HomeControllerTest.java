@@ -1,4 +1,4 @@
-package ru.leonchenko.spring.chopchopsushi;
+package tacos;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -14,10 +14,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import ru.leonchenko.spring.chopchopsushi.data.TacoRepository;
 import ru.leonchenko.spring.chopchopsushi.data.IngredientRepository;
 import ru.leonchenko.spring.chopchopsushi.data.OrderRepository;
-import ru.leonchenko.spring.chopchopsushi.data.TacoRepository;
-
 
 @RunWith(SpringRunner.class)
 @WebMvcTest

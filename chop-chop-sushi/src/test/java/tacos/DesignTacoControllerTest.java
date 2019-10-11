@@ -1,4 +1,4 @@
-package ru.leonchenko.spring.chopchopsushi;
+package tacos;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -10,6 +10,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.Arrays;
 import java.util.List;
 
+import ru.leonchenko.spring.chopchopsushi.Ingredient;
+import ru.leonchenko.spring.chopchopsushi.Taco;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,11 +22,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import ru.leonchenko.spring.chopchopsushi.controller.DesignTacoController;
+import ru.leonchenko.spring.chopchopsushi.Ingredient.Type;
 import ru.leonchenko.spring.chopchopsushi.data.IngredientRepository;
 import ru.leonchenko.spring.chopchopsushi.data.OrderRepository;
 import ru.leonchenko.spring.chopchopsushi.data.TacoRepository;
-import ru.leonchenko.spring.chopchopsushi.Ingredient.Type;
+import ru.leonchenko.spring.chopchopsushi.web.DesignTacoController;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(DesignTacoController.class)

@@ -4,21 +4,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import ru.leonchenko.spring.chopchopsushi.Ingredient;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import ru.leonchenko.spring.chopchopsushi.Ingredient;
-
 /**
- * @author Igor Leonchenko
- * @version 1.0
+ * Raw implementation of {@link IngredientRepository} for
+ * comparison with {@link JdbcIngredientRepository} to illustrate
+ * the power of using {@link JdbcTemplate}. 
+ * @author habuma
  */
-
 public class RawJdbcIngredientRepository implements IngredientRepository {
 
   private DataSource dataSource;

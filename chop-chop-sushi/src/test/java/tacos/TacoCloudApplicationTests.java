@@ -1,4 +1,4 @@
-package ru.leonchenko.spring.chopchopsushi;
+package tacos;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

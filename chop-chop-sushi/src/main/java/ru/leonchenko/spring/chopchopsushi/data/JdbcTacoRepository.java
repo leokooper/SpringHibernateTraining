@@ -15,12 +15,6 @@ import org.springframework.stereotype.Repository;
 import ru.leonchenko.spring.chopchopsushi.Ingredient;
 import ru.leonchenko.spring.chopchopsushi.Taco;
 
-/**
- * @author Igor Leonchenko
- * @version 1.0
- */
-
-
 @Repository
 public class JdbcTacoRepository implements TacoRepository {
 

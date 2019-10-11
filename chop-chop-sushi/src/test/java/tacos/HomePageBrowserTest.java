@@ -1,4 +1,4 @@
-package ru.leonchenko.spring.chopchopsushi;
+package tacos;
 
 import java.util.concurrent.TimeUnit;
 

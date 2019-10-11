@@ -7,15 +7,9 @@ import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import ru.leonchenko.spring.chopchopsushi.Ingredient;
-
-/**
- * @author Igor Leonchenko
- * @version 1.0
- */
 
 @Repository
 public class JdbcIngredientRepository

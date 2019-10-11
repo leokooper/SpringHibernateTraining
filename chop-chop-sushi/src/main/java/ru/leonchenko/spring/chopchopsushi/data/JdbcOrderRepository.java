@@ -13,13 +13,8 @@ import org.springframework.stereotype.Repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ru.leonchenko.spring.chopchopsushi.Order;
 import ru.leonchenko.spring.chopchopsushi.Taco;
-
-/**
- * @author Igor Leonchenko
- * @version 1.0
- */
+import ru.leonchenko.spring.chopchopsushi.Order;
 
 @Repository
 public class JdbcOrderRepository implements OrderRepository {
