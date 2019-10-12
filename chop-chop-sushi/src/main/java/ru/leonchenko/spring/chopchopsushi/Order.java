@@ -11,15 +11,17 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import lombok.Data;
 
-//tag::newFields[]
+/**
+ * @author Igor Leonchenko
+ * @version 1.0
+ */
+
 @Data
 public class Order {
   
   private Long id;
   
   private Date placedAt;
-  
-//end::newFields[]
 
   @NotBlank(message="Delivery name is required")
   private String deliveryName;
@@ -52,13 +54,6 @@ public class Order {
     this.tacos.add(design);
   }
   
-  /*
-// tag::newFields[]
-  ...
 
-// end::newFields[]
-   */
-//tag::newFields[]
 }
-//end::newFields[]
 

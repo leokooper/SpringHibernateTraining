@@ -3,6 +3,11 @@ package ru.leonchenko.spring.chopchopsushi;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * @author Igor Leonchenko
+ * @version 1.0
+ */
+
 @Data
 @RequiredArgsConstructor
 public class Ingredient {

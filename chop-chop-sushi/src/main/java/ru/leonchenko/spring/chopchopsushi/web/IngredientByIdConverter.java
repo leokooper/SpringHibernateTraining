@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 
 import ru.leonchenko.spring.chopchopsushi.Ingredient;
 
+/**
+ * @author Igor Leonchenko
+ * @version 1.0
+ */
+
 @Component
 public class IngredientByIdConverter implements Converter<String, Ingredient> {
 

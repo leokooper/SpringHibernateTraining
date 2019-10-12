@@ -1,4 +1,3 @@
-// tag::core[]
 package ru.leonchenko.spring.chopchopsushi.data;
 
 import java.util.Date;
@@ -15,6 +14,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ru.leonchenko.spring.chopchopsushi.Taco;
 import ru.leonchenko.spring.chopchopsushi.Order;
+
+/**
+ * @author Igor Leonchenko
+ * @version 1.0
+ */
 
 @Repository
 public class JdbcOrderRepository implements OrderRepository {
@@ -34,9 +38,7 @@ public class JdbcOrderRepository implements OrderRepository {
 
     this.objectMapper = new ObjectMapper();
   }
-// end::core[]
 
-// tag::save[]
   @Override
   public Order save(Order order) {
     order.setPlacedAt(new Date());
@@ -69,16 +71,5 @@ public class JdbcOrderRepository implements OrderRepository {
     values.put("taco", taco.getId());
     orderTacoInserter.execute(values);
   }
-// end::save[]
 
-/*
-// tag::core[]
-
-...
-
-// end::core[]
- */
-
-// tag::core[]
 }
-// end::core[]

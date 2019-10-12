@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+/**
+ * @author Igor Leonchenko
+ * @version 1.0
+ */
+
 @Controller
 @RequestMapping("/orders")
 @SessionAttributes("order")
