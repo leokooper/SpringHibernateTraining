@@ -1,5 +1,6 @@
 package ru.leonchenko.spring.chopchopsushi.data;
 
+import org.springframework.data.repository.CrudRepository;
 import ru.leonchenko.spring.chopchopsushi.Taco;
 
 /**
@@ -7,8 +8,8 @@ import ru.leonchenko.spring.chopchopsushi.Taco;
  * @version 1.0
  */
 
-public interface TacoRepository  {
+public interface TacoRepository extends CrudRepository<Taco, Long> {
 
-  Taco save(Taco design);
+//  Taco save(Taco design);
   
 }

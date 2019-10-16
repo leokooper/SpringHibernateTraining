@@ -1,5 +1,6 @@
 package ru.leonchenko.spring.chopchopsushi.data;
 
+import org.springframework.data.repository.CrudRepository;
 import ru.leonchenko.spring.chopchopsushi.Ingredient;
 
 /**
@@ -7,12 +8,12 @@ import ru.leonchenko.spring.chopchopsushi.Ingredient;
  * @version 1.0
  */
 
-public interface IngredientRepository {
+public interface IngredientRepository extends CrudRepository<Integer, String> {
 
-  Iterable<Ingredient> findAll();
-  
-  Ingredient findById(String id);
-  
-  Ingredient save(Ingredient ingredient);
+//  Iterable<Ingredient> findAll();
+//
+//  Ingredient findById(String id);
+//
+//  Ingredient save(Ingredient ingredient);
   
 }
