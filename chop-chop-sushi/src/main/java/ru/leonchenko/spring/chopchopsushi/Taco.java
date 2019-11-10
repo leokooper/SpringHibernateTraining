@@ -1,4 +1,5 @@
 package ru.leonchenko.spring.chopchopsushi;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class Taco {
 
   @ManyToMany(targetEntity=Ingredient.class)
   @Size(min=1, message="You must choose at least 1 ingredient")
-  private List<Ingredient> ingredients;
+  private List<Ingredient> ingredients = new ArrayList<>();
 
     @PrePersist
     void createdAt() {

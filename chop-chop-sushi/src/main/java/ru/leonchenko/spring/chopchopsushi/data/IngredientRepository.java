@@ -8,7 +8,7 @@ import ru.leonchenko.spring.chopchopsushi.Ingredient;
  * @version 1.0
  */
 
-public interface IngredientRepository extends CrudRepository<Integer, String> {
+public interface IngredientRepository extends CrudRepository<Ingredient, String> {
 
 //  Iterable<Ingredient> findAll();
 //

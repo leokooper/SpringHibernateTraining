@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 
 import ru.leonchenko.spring.chopchopsushi.Ingredient;
 
+import java.util.Optional;
+
 /**
  * @author Igor Leonchenko
  * @version 1.0
@@ -24,7 +26,9 @@ public class IngredientByIdConverter implements Converter<String, Ingredient> {
   
   @Override
   public Ingredient convert(String id) {
-    return ingredientRepo.findById(id);
+      Optional<Ingredient> optionalIngredient = ingredientRepo.findById(id);
+      return optionalIngredient.isPresent() ?
+              optionalIngredient.get() : null;
   }
 
 }
