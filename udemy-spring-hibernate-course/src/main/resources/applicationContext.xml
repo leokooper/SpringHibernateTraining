@@ -3,18 +3,36 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/beans/spring-context.xsd">
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean id="myFortune" class="ru.leonchenko.springdemoone.HappyFotuneService"></bean>
+    <!--    load property file-->
+
+    <context:property-placeholder location="classpath:file.properties"/>
+
+    <bean id="myFortuneService" class="ru.leonchenko.springdemoone.HappyFotuneService"></bean>
 
     <bean id="myBaseballCoach" class="ru.leonchenko.springdemoone.BaseballCoach">
-        <constructor-arg ref="myFortune"/>
+        <constructor-arg ref="myFortuneService"/>
     </bean>
 
     <bean id="myTrackCoach" class="ru.leonchenko.springdemoone.TrackCoach">
-        <constructor-arg ref="myFortune"/>
+        <constructor-arg ref="myFortuneService"/>
+    </bean>
+
+
+    <bean id="myCricketCoach" class="ru.leonchenko.springdemoone.CricketCoach">
+        <property name="fortuneService" ref="myFortuneService"></property>
+
+        <!--    hard coded values -->
+        <!--    <property name="emailAddress" value="leonchenko88@yandex.ru"/>-->
+        <!--    <property name="name" value="Igor" />-->
+
+        <!--    property-coded values -->
+        <property name="emailAddress" value="${prop.emailAddress}"/>
+        <property name="name" value="${prop.name}"/>
+
     </bean>
 
 </beans>

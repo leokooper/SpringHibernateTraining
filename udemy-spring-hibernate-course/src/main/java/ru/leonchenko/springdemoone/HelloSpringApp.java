@@ -11,13 +11,11 @@ public class HelloSpringApp {
     public static void main(String[] args) {
         //loading config file
         ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext.xml");
+                new ClassPathXmlApplicationContext("application.xml");
 
         //retrieving bean
         Coach theBaseballCoach = context.getBean("myBaseballCoach", Coach.class);
         Coach theTrackCoach = context.getBean("myTrackCoach", Coach.class);
-
-
 
         //get method from bean
         System.out.println(theBaseballCoach.getDailyWorkout());
