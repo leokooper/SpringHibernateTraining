@@ -13,6 +13,9 @@
 
     <bean id="myFortuneService" class="ru.leonchenko.springdemoone.HappyFotuneService"></bean>
 
+    <bean id="myRandomFortuneService" class="ru.leonchenko.springdemoone.RandomFortuneService"></bean>
+
+
     <bean id="myBaseballCoach" class="ru.leonchenko.springdemoone.BaseballCoach">
         <constructor-arg ref="myFortuneService"/>
     </bean>
@@ -20,7 +23,6 @@
     <bean id="myTrackCoach" class="ru.leonchenko.springdemoone.TrackCoach">
         <constructor-arg ref="myFortuneService"/>
     </bean>
-
 
     <bean id="myCricketCoach" class="ru.leonchenko.springdemoone.CricketCoach">
         <property name="fortuneService" ref="myFortuneService"></property>
@@ -33,6 +35,19 @@
         <property name="emailAddress" value="${prop.emailAddress}"/>
         <property name="name" value="${prop.name}"/>
 
+    </bean>
+
+    <bean id="myPersonalCoachSingleton"
+          class="ru.leonchenko.springdemoone.PersonalCoach"
+          init-method="initMethod"
+          destroy-method="destroyMethod">
+        <property name="fortuneService" ref="myRandomFortuneService"></property>
+    </bean>
+
+    <bean id="myPersonalCoachPrototype"
+          class="ru.leonchenko.springdemoone.PersonalCoach"
+          scope="prototype">
+        <property name="fortuneService" ref="myRandomFortuneService"></property>
     </bean>
 
 </beans>
