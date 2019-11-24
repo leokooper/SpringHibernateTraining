@@ -9,14 +9,18 @@ public class AnnotationDemoApp {
                 new ClassPathXmlApplicationContext("applicationContextAnnotations.xml");
 
         //retrieve bean from container
-        Coach theCoach = context.getBean("annotationCoach",Coach.class);
-        Coach theAnotherCoach = context.getBean("thatSillyCoach",Coach.class);
+        AnnotationCoach theCoach = context.getBean("annotationCoach", AnnotationCoach.class);
+//        Coach theAnotherCoach = context.getBean("thatSillyCoach",Coach.class);
 
         //call bean methods
         System.out.println(theCoach.getDailyWorkout());
-        System.out.println(theAnotherCoach.getDailyWorkout());
-        
-        //close conntext
+//        System.out.println(theAnotherCoach.getDailyWorkout());
+        System.out.println(theCoach.getDailyFortune());
+
+        System.out.println(theCoach.getName());
+        System.out.println(theCoach.getEmail());
+
+        //close context
         context.close();
 
     }
