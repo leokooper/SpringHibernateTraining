@@ -4,15 +4,30 @@ package ru.leonchenko.springdemotwo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
+@Scope("singleton")
 public class AnnotationCoach implements Coach {
 
     //field injection
 //    @Autowired
 //    @Qualifier("randomFortuneService")
     private FortuneService fortuneService;
+
+    @PostConstruct
+    void doMyStartupStuff(){
+        System.out.println("Method after start!");
+    }
+
+    @PreDestroy
+    void doMyDestroyStuff(){
+        System.out.println("Method before destruction!");
+    }
 
     @Value("${prop.emailAddress}")
     private String email;
@@ -28,6 +43,7 @@ public class AnnotationCoach implements Coach {
     @Autowired
     public AnnotationCoach(@Qualifier("randomFortuneService") FortuneService fortuneService) {
         this.fortuneService = fortuneService;
+        System.out.println("Creating new constructor");
     }
 
     //setter injection
@@ -68,4 +84,5 @@ public class AnnotationCoach implements Coach {
     public void setName(String name) {
         this.name = name;
     }
+
 }
